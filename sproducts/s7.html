@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="img/letter-c.png" type="image/icon type">
+    <title>Cara</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id="header">
+        <a href="#"> <img src="img/logo.png" class="logo" alt=""></a>
+        <!-- <h4>seven style</h4> -->
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="wishlist.html"><i class='far fa-heart fa-lg'
+                            style="color: rgb(255, 81, 81);"></i></a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-lg"></i></a></li>
+                <li id="lg-bag"><a href="user.html"><i class="far fa-circle-user fa-lg"></i></a></li>
+                <i class="fa-solid fa-xmark fa-lg" id="close"></i>
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping fa-lg"></i></a>
+            <a href="wishlist.html"><i class='far fa-heart fa-lg' style="color: rgb(255, 81, 81);"></i></a>
+            <a href="user.html"><i class="far fa-circle-user fa-lg"></i></a>
+            <i class="fas fa-outdent fa-lg" id="bar"></i>
+        </div>
+
+    </section>
+
+    <a href="shop.html" class="underline"><i class="fa fa-long-arrow-alt-left fa-2xl" id="underline"></i></a>
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="img/products/f8.jpg" width="100%" alt="" id="MainImg">
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="img/products/f8.jpg" width="100%" class="small-img" alt="">
+                </div>
+
+                <div class="small-img-col">
+                    <img src="img/products/f5.jpg" width="100%" class="small-img" alt="">
+                </div>
+
+                <div class="small-img-col">
+                    <img src="img/products/f2.jpg" width="100%" class="small-img" alt="">
+                </div>
+
+                <div class="small-img-col">
+                    <img src="img/products/f3.jpg" width="100%" class="small-img" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="single-pro-details">
+            <h6>Shirt</h6>
+            <h4>Men's Fashion T-Shirt</h4>
+            <h2>Rs.499.00</h2>
+            <select name="" id="selectedSize">
+                <option value="">Select Size</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+            <input type="number" name="" id="selectedQuantity" value="1">
+            <button class="normal"
+                onclick="addToCart({name: 'Men\'s Fashion T-Shirt', price: 499, image: 'img/products/f8.jpg'})">Add To
+                Cart</button>
+            <h4>Product Details</h4>
+            <span>The Gildan Ultra Cotton T-Shirt is made From a Substantial 6.0 oz. per sc. yd. febric constructed from
+                100% cotton, this classic fit preshrunk jersey
+                knit provides unnatched comfort with each wear. featuring a taped neck and shoulder, and a seanless
+                double-needle collar, and available in a range
+                of colors, it offers it all in the ultimate head-turning package.</span>
+        </div>
+
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Morden Design</p>
+        <div class="pro-container">
+            <div class="pro">
+                <div class="img" onclick="window.location.href='sproduct2.html';">
+                    <img src="img/products/n1.jpg" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.399</h4>
+                    </div>
+                </div>
+                <button onclick="addToWishlist('Cartoon Astronaut T-Shirts', 'Rs.399', 'img/products/n1.jpg')">
+                    <i class='fas fa-heart fa-xl cart'></i>
+                </button>
+            </div>
+
+            <div class="pro">
+                <div class="img" onclick="window.location.href='s8.html';">
+                    <img src="img/products/n2.jpg" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.399</h4>
+                    </div>
+                </div>
+                <button onclick="addToWishlist('Cartoon Astronaut T-Shirts', 'Rs.399', 'img/products/n2.jpg')">
+                    <i class='fas fa-heart fa-xl cart'></i>
+                </button>
+            </div>
+
+            <div class="pro">
+                <div class="img" onclick="window.location.href='s9.html';">
+                    <img src="img/products/n3.jpg" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.399</h4>
+                    </div>
+                </div>
+                <button onclick="addToWishlist('Cartoon Astronaut T-Shirts', 'Rs.399', 'img/products/n3.jpg')">
+                    <i class='fas fa-heart fa-xl cart'></i>
+                </button>
+            </div>
+
+            <div class="pro">
+                <div class="img" onclick="window.location.href='s10.html';">
+                    <img src="img/products/n4.jpg" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.399</h4>
+                    </div>
+                </div>
+                <button onclick="addToWishlist('Cartoon Astronaut T-Shirts', 'Rs.399', 'img/products/n4.jpg')">
+                    <i class='fas fa-heart fa-xl cart'></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div id="newsletters" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For newsletters</h4>
+                <p>Get E-mail updates about our latest shop and <span> special offers. </span></p>
+                <p>If you have already signed up then <button class="a" id="loginButton">Login</button></p>
+            </div>
+            <div class="form">
+                <input type="text" name="" id="" placeholder="Your Email Adress" required>
+                <button class="normal" id="signup">Sign Up</button>
+            </div>
+            <div id="popupBox" class="popup">
+                <h4 id="popupMessage"></h4>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Adress: </strong> Nana Varachha Surat</p>
+            <p><strong>Phone: </strong> +91 7862989487 / +91 9426056690</p>
+            <p><strong>Hours: </strong>Online 24/7 - Offline 09:00am - 10:00pm, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-telegram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p><i class="fa-solid fa-copyright fa-lg"></i> 2023, Cara.com - Clothes That Never Go Out Of Style. All
+                rights reserved </p>
+            <p><a href="#">Terms of Use </a> | <a href="#">Cookie & Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const username = localStorage.getItem("username");
+            const loginButton = document.getElementById("loginButton");
+            const signup = document.getElementById("signup");
+            const popupBox = document.getElementById("popupBox");
+            const popupMessage = document.getElementById("popupMessage");
+            const newslettersSection = document.getElementById("newsletter");
+
+            if (loginButton) {
+                loginButton.addEventListener("click", () => {
+                    if (username !== null) {
+                        localStorage.setItem("shouldShowPopup", "true");
+                    } else {
+                        window.location.href = "login.html";
+                    }
+                });
+            }
+
+            if (signup) {
+                signup.addEventListener("click", () => {
+                    if (username !== null) {
+                        localStorage.setItem("shouldShowPopup", "true");
+                    } else {
+                        window.location.href = "login.html";
+                    }
+                });
+            }
+
+            if (localStorage.getItem("shouldShowPopup") === "true" && username !== null && window.location.href.includes("index.html")) {
+                localStorage.removeItem("shouldShowPopup");
+                showPopup();
+
+                const formattedUsername = username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
+                const spanElement = document.createElement("span");
+                spanElement.textContent = formattedUsername;
+                spanElement.classList.add("username-span");
+
+                popupMessage.innerHTML = `Welcome ${spanElement.outerHTML}, You are Already Logged in at Cara.com.`;
+
+                setTimeout(() => {
+                    popupBox.style.display = "none";
+                }, 2000);
+            }
+
+            if (username !== null) {
+                newslettersSection.style.display = "none";
+            } else {
+                newslettersSection.style.display = "block";
+            }
+
+            function showPopup() {
+                popupBox.style.display = "block";
+            }
+        });
+        var MainImg = document.getElementById("MainImg");
+        var smallimg = document.getElementsByClassName("small-img");
+
+        smallimg[0].onclick = function () {
+            MainImg.src = smallimg[0].src;
+        }
+
+        smallimg[1].onclick = function () {
+            MainImg.src = smallimg[1].src;
+        }
+
+        smallimg[2].onclick = function () {
+            MainImg.src = smallimg[2].src;
+        }
+
+        smallimg[3].onclick = function () {
+            MainImg.src = smallimg[3].src;
+        }
+        function addToWishlist(name, price, imageSrc) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.push({
+                name: name,
+                price: price,
+                imageSrc: imageSrc
+            });
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            // updateWishlistTable();
+        }
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

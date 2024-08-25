@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="img/letter-c.png" type="image/icon type">
+    <title>Cara</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- <h2>sign up</h2>
+    <form action="/signup" method="post">
+        <input type="text" name="name" id="" placeholder="Name"><br><br>
+        <input type="password" name="password" id="" placeholder="password"><br><br>
+        <input type="submit">
+    </form> -->
+    <div class="signup-container">
+        <div class="screen1">
+            <div class="screen__content">
+                <form class="signup" action="/signup" method="post" enctype="multipart/form-data">
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" name="name" class="login__input" placeholder="User name / Email">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-phone"></i>
+                        <input type="tel" name="phone" class="login__input" placeholder="Phone Number">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-file-arrow-up"></i>
+                        <input type="file" name="profilePicture" class="login__input" accept="image/*">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" name="password" class="login__input" placeholder="Password">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" name="compassword" class="login__input" placeholder="Confirm Password">
+                        <p id="password-error" class="password-error"></p>
+                    </div>
+                    <button class="button signup__submit">
+                        <span class="button__text">Register</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>
+                </form>
+                <div class="social-signup">
+                    <h3>Register via</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/instagram/"
+                            class="social-login__icon fab fa-instagram fa-lg"></a>
+                        <a href="https://www.facebook.com/facebook/"
+                            class="social-login__icon fab fa-facebook fa-lg"></a>
+                        <a href="https://www.twitter.com/twitter/" class="social-login__icon fab fa-twitter fa-lg"></a>
+                    </div>
+                </div>
+                <h3><a class="foot" href="./login.html">Login</a></h3>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Adress: </strong> Nana Varachha Surat</p>
+            <p><strong>Phone: </strong> +91 7862989487 / +91 9426056690</p>
+            <p><strong>Hours: </strong>Online 24/7 - Offline 09:00am - 10:00pm, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-telegram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p><i class="fa-solid fa-copyright fa-lg"></i> 2023, Cara.com - Clothes That Never Go Out Of Style. All
+                rights reserved </p>
+            <p><a href="#">Terms of Use </a> | <a href="#">Cookie & Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.querySelector(".signup");
+
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const password = document.getElementsByName("password")[0].value;
+                const confirmPassword = document.getElementsByName("compassword")[0].value;
+                const errorMessage = document.getElementById("password-error");
+                const profilePictureInput = document.getElementById("profilePictureInput");
+                const phone = document.getElementsByName("phone")[0].value;
+
+                if (password !== confirmPassword) {
+                    errorMessage.textContent = "Passwords do not match";
+                    return;
+                } else {
+                    errorMessage.textContent = "";
+
+                    try {
+                        const response = await fetch("/checkPhoneNumber", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                phone: phone
+                            })
+                        });
+
+                        const responseData = await response.json();
+
+                        if (response.ok) {
+                            form.submit();
+                        } else {
+                            alert(responseData.message);
+                        }
+                    } catch (error) {
+                        console.error("Error:", error);
+                    }
+                }
+
+                profilePictureInput.addEventListener("change", (event) => {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            const profilePictureUrl = e.target.result;
+                            localStorage.setItem("profilePictureUrl", profilePictureUrl);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

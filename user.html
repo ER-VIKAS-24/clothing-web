@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="icon" href="img/letter-c.png" type="image/icon type">
+        <title>Cara</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+</head>
+
+<body>
+    <section id="header">
+        <a href="#"> <img src="img/logo.png" class="logo" alt=""></a>
+        <!-- <h4>seven style</h4> -->
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="wishlist.html"><i class='far fa-heart fa-lg'
+                            style="color: rgb(255, 81, 81);"></i></a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-lg"></i></a></li>
+                <li id="lg-bag"><a class="active" href="user.html"><i class="far fa-circle-user fa-lg"></i></a></li>
+                <i class="fa-solid fa-xmark fa-lg" id="close"></i>
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping fa-lg"></i></a>
+            <a href="wishlist.html"><i class='far fa-heart fa-lg' style="color: rgb(255, 81, 81);"></i></a>
+            <a href="user.html"><i class="far fa-circle-user fa-lg"></i></a>
+            <i class="fas fa-outdent fa-lg" id="bar"></i>
+        </div>
+
+    </section>
+
+    <section id="user-data" class="section-p1">
+        <div class="user-img">
+            <img src="img/people/default.png" alt="Profile Picture" id="userProfilePicture">
+            <h4 id="userh2">Welcome, <span id="username"></span> !</h4>
+        </div>
+        <div id="userActions">
+            <div class="log">
+                <button class="normal" id="logoutButton">Log Out</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Adress: </strong> Nana Varachha Surat</p>
+            <p><strong>Phone: </strong> +91 7862989487 / +91 9426056690</p>
+            <p><strong>Hours: </strong>Online 24/7 - Offline 09:00am - 10:00pm, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-telegram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p><i class="fa-solid fa-copyright fa-lg"></i> 2023, Cara.com - Clothes That Never Go Out Of Style. All
+                rights reserved </p>
+            <p><a href="#">Terms of Use </a> | <a href="#">Cookie & Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const username = localStorage.getItem("username");
+            const usernameElement = document.getElementById("username");
+            const userProfilePictureElement = document.getElementById("userProfilePicture");
+            const userActionsElement = document.getElementById("userActions");
+            const logoutButton = document.getElementById("logoutButton");
+
+            if (username) {
+                usernameElement.textContent = username;
+                logoutButton.style.display = "block";
+
+                const response = await fetch(`/getProfilePicture?username=${username}`);
+                const data = await response.json();
+
+                if (data.profilePicture) {
+                    userProfilePictureElement.src = `data:image/jpeg;base64,${data.profilePicture}`;
+                } else {
+                    userProfilePictureElement.src = "img/people/def.png";
+                }
+            } else {
+                usernameElement.textContent = "Guest";
+                logoutButton.style.display = "none";
+                userActionsElement.innerHTML = `<div id="b"><button class="normal" id="a" onclick="window.location.href='login.html';">Log in</button> <button class="normal" id="a" onclick="window.location.href='signup.html';">Signup</button></div>`;
+            }
+
+            logoutButton.addEventListener("click", () => {
+                localStorage.removeItem("username");
+                localStorage.removeItem("profilePictureUrl");
+                window.location.reload();
+            });
+        });
+    </script>
+</body>
+
+</html>

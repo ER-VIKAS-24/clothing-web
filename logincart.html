@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="icon" href="img/letter-c.png" type="image/icon type">
+        <title>Cara</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+</head>
+
+<body>
+    <section id="login-form">
+        <div class="login-container">
+            <div class="screen">
+                <div class="screen__content">
+                    <form class="login" action="/login" method="post">
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" name="name" class="login__input" placeholder="User name / Email">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="password" name="password" class="login__input" placeholder="Password">
+                        </div>
+                        <button class="button login__submit">
+                            <span class="button__text">Log In Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>
+                    </form>
+                    <div class="social-login">
+                        <h3>log in via</h3>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/instagram/" rel="noopener noreferrer" target="_blank"
+                                class="social-login__icon fab fa-instagram fa-lg"></a>
+                            <a href="https://www.facebook.com/facebook/" rel="noopener noreferrer" target="_blank"
+                                class="social-login__icon fab fa-facebook fa-lg"></a>
+                            <a href="https://www.twitter.com" rel="noopener noreferrer" target="_blank"
+                                class="social-login__icon fab fa-twitter fa-lg"></a> <br><br>
+                        </div>
+                    </div>
+
+                    <h3><a class="foot" href="./signupcart.html">create a new account?</a></h3>
+
+                </div>
+                <div class="screen__background">
+                    <span class="screen__background__shape screen__background__shape4"></span>
+                    <span class="screen__background__shape screen__background__shape3"></span>
+                    <span class="screen__background__shape screen__background__shape2"></span>
+                    <span class="screen__background__shape screen__background__shape1"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Adress: </strong> Nana Varachha Surat</p>
+            <p><strong>Phone: </strong> +91 7862989487 / +91 9426056690</p>
+            <p><strong>Hours: </strong>Online 24/7 - Offline 09:00am - 10:00pm, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-telegram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p><i class="fa-solid fa-copyright fa-lg"></i> 2023, Cara.com - Clothes That Never Go Out Of Style. All
+                rights reserved </p>
+            <p><a href="#">Terms of Use </a> | <a href="#">Cookie & Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.querySelector(".login");
+
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const nameInput = document.querySelector("input[name='name']");
+                const passwordInput = document.querySelector("input[name='password']");
+
+                try {
+                    const response = await fetch("/login", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            name: nameInput.value,
+                            password: passwordInput.value
+                        })
+                    });
+
+                    const responseData = await response.json();
+
+                    if (response.ok) {
+                        localStorage.setItem("username", nameInput.value);
+                        window.location.href = "cart.html";
+                    } else {
+                        alert(responseData.message);
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
